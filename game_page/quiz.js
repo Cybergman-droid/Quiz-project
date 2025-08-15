@@ -1,7 +1,9 @@
+let currentQuestionIndex;
 const quizquestionField = document.getElementById('quizquestion');
 const answerButtons = document.querySelectorAll('.quizbutton');
+let score = 0
 
-
+questionNum = 10
 
 const physicsQuestions = [
     {
@@ -64,13 +66,13 @@ function showQuestions(event){
         answerButton.innerHTML = physicsQuestions[questionIndex].possibleAnswers[i]
         i++
     });
+    currentQuestionIndex = questionIndex;
     checkAnswer(event,questionIndex)
 };
 
 function checkAnswer(event,questionIndex){
-    let score = ''
     const selectedBtn = event.target;
-    const selectedAns = event.target.innerHTML;
+    const selectedAns = selectedBtn.innerHTML;
     const correctAns  = physicsQuestions[questionIndex].correctAnswer;
 
     if (selectedAns === correctAns){
@@ -80,7 +82,6 @@ function checkAnswer(event,questionIndex){
     } else {
         selectedBtn.style.backgroundColor = '#f44336';
     };
-
 };
 
 answerButtons.forEach(answerButton => {
