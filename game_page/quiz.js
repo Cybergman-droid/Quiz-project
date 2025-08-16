@@ -1,9 +1,17 @@
 let currentQuestionIndex;
 const quizquestionField = document.getElementById('quizquestion');
 const answerButtons = document.querySelectorAll('.quizbutton');
-let score = 0
+let user = {
+    username: localStorage.getItem("username"),
+    questionNum: localStorage.getItem("questionNum"),
+    score: 0
+};
 
-questionNum = 10
+let username = user.username;
+let questionNum = user.questionNum;
+let score = user.score;
+
+console.log(username, questionNum, score);
 
 const physicsQuestions = [
     {
@@ -58,7 +66,7 @@ const physicsQuestions = [
     }
 ];
 
-function showQuestions(event){
+function showQuestions(){
     let questionIndex = Math.floor((Math.random() * physicsQuestions.length));
     quizquestionField.innerHTML = physicsQuestions[questionIndex].question
     let i = 0
@@ -84,5 +92,14 @@ function checkAnswer(event,questionIndex){
     };
 };
 
-answerButtons.forEach(answerButton => {
-    answerButton.addEventListener('click', event => showQuestions(event))});
+function startQuiz(questionNum){
+    for(let i = 0; i <= questionNum;i++){
+        showQuestions()
+    }
+}
+
+
+window.onload 
+    startQuiz(questionNum)
+
+
