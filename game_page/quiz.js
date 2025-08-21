@@ -8,10 +8,10 @@ let user = {
 };
 
 let username = user.username;
-let questionNum = user.questionNum;
+let numOfQuestions = user.questionNum;
 let score = user.score;
 
-console.log(username, questionNum, score);
+console.log(username, numOfQuestions, score);
 
 const physicsQuestions = [
     {
@@ -75,13 +75,12 @@ function showQuestions(){
         i++
     });
     currentQuestionIndex = questionIndex;
-    checkAnswer(event,questionIndex)
 };
 
-function checkAnswer(event,questionIndex){
+function checkAnswer(event,){
     const selectedBtn = event.target;
     const selectedAns = selectedBtn.innerHTML;
-    const correctAns  = physicsQuestions[questionIndex].correctAnswer;
+    const correctAns  = physicsQuestions[currentQuestionIndex].correctAnswer;
 
     if (selectedAns === correctAns){
         score++
@@ -92,14 +91,17 @@ function checkAnswer(event,questionIndex){
     };
 };
 
-function startQuiz(questionNum){
-    for(let i = 0; i <= questionNum;i++){
+function startQuiz(numOfQuestions){
+    answerButtons.forEach(answerButton => {
+        answerButton.addEventListener('click',checkAnswer)
+    })
+    for(let i = 0; i <= numOfQuestions;i++){
         showQuestions()
     }
 }
 
 
 window.onload 
-    startQuiz(questionNum)
+    startQuiz(numOfQuestions)
 
 
