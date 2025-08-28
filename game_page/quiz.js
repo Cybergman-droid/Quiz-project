@@ -95,6 +95,7 @@ function startQuiz(numOfQuestions){
     answerButtons.forEach(answerButton => {
         answerButton.addEventListener('click',checkAnswer)
     })
+
     for(let i = 0; i <= numOfQuestions;i++){
         showQuestions()
     }
