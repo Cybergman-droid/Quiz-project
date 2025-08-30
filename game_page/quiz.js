@@ -69,6 +69,166 @@ const physicsQuestions = [
     }
 ];
 
+const chemistryQuestions = [
+    {
+        question: 'What is the general formula for an alkane?',
+        possibleAnswers: ['CnH2n', 'CnH2n+2', 'CnH2n-2', 'CnHn'],
+        correctAnswer: 'CnH2n+2',
+    },
+    {
+        question: 'Which of these elements has the highest electronegativity?',
+        possibleAnswers: ['Fluorine', 'Chlorine', 'Oxygen', 'Nitrogen'],
+        correctAnswer: 'Fluorine',
+    },
+    {
+        question: 'What is the pH of a neutral solution at 25°C?',
+        possibleAnswers: ['0', '7', '14', '1'],
+        correctAnswer: '7',
+    },
+    {
+        question: 'Which type of reaction is characteristic of alkenes?',
+        possibleAnswers: ['Substitution', 'Addition', 'Elimination', 'Redox'],
+        correctAnswer: 'Addition',
+    },
+    {
+        question: 'What is the shape of a molecule with 3 bonding pairs and 1 lone pair?',
+        possibleAnswers: ['Tetrahedral', 'Trigonal planar', 'Trigonal pyramidal', 'Bent'],
+        correctAnswer: 'Trigonal pyramidal',
+    },
+    {
+        question: 'Which of these is a strong acid?',
+        possibleAnswers: ['Ethanoic acid', 'Carbonic acid', 'Sulfuric acid', 'Citric acid'],
+        correctAnswer: 'Sulfuric acid',
+    },
+    {
+        question: 'What is the oxidation state of chromium in K2Cr2O7?',
+        possibleAnswers: ['+2', '+3', '+6', '+7'],
+        correctAnswer: '+6',
+    },
+    {
+        question: 'Which type of isomerism is shown by but-1-ene and but-2-ene?',
+        possibleAnswers: ['Chain', 'Position', 'Functional group', 'Stereoisomerism'],
+        correctAnswer: 'Position',
+    },
+    {
+        question: 'What is the name of the process that breaks down long-chain hydrocarbons into shorter ones?',
+        possibleAnswers: ['Cracking', 'Reforming', 'Polymerization', 'Hydrogenation'],
+        correctAnswer: 'Cracking',
+    },
+    {
+        question: 'Which of these is a nucleophile?',
+        possibleAnswers: ['H+', 'NH3', 'AlCl3', 'BF3'],
+        correctAnswer: 'NH3',
+    }
+];
+
+const biologyQuestions = [
+    {
+        question: 'Which organelle is the site of aerobic respiration in eukaryotic cells?',
+        possibleAnswers: ['Nucleus', 'Mitochondrion', 'Chloroplast', 'Ribosome'],
+        correctAnswer: 'Mitochondrion',
+    },
+    {
+        question: 'What is the name of the process by which water moves across a semi-permeable membrane?',
+        possibleAnswers: ['Diffusion', 'Active transport', 'Osmosis', 'Facilitated diffusion'],
+        correctAnswer: 'Osmosis',
+    },
+    {
+        question: 'Which blood vessels carry blood away from the heart?',
+        possibleAnswers: ['Veins', 'Arteries', 'Capillaries', 'Venules'],
+        correctAnswer: 'Arteries',
+    },
+    {
+        question: 'What is the name of the enzyme that breaks down starch into maltose?',
+        possibleAnswers: ['Protease', 'Lipase', 'Amylase', 'Catalase'],
+        correctAnswer: 'Amylase',
+    },
+    {
+        question: 'Which of these is a function of the liver?',
+        possibleAnswers: ['Production of insulin', 'Storage of glycogen', 'Filtration of blood', 'Production of bile only'],
+        correctAnswer: 'Storage of glycogen',
+    },
+    {
+        question: 'What is the name of the process by which plants lose water vapor through their leaves?',
+        possibleAnswers: ['Transpiration', 'Translocation', 'Respiration', 'Photosynthesis'],
+        correctAnswer: 'Transpiration',
+    },
+    {
+        question: 'Which of these is a function of the nervous system?',
+        possibleAnswers: ['Producing hormones', 'Transporting oxygen', 'Generating electrical impulses', 'Producing antibodies'],
+        correctAnswer: 'Generating electrical impulses',
+    },
+    {
+        question: 'What is the name of the process by which DNA is copied before cell division?',
+        possibleAnswers: ['Translation', 'Transcription', 'Replication', 'Mitosis'],
+        correctAnswer: 'Replication',
+    },
+    {
+        question: 'Which of these is a feature of a prokaryotic cell?',
+        possibleAnswers: ['Nucleus', 'Mitochondria', 'Cell wall made of peptidoglycan', 'Endoplasmic reticulum'],
+        correctAnswer: 'Cell wall made of peptidoglycan',
+    },
+    {
+        question: 'What is the name of the process by which plants convert light energy into chemical energy?',
+        possibleAnswers: ['Respiration', 'Transpiration', 'Photosynthesis', 'Osmosis'],
+        correctAnswer: 'Photosynthesis',
+    }
+];
+
+const computingQuestions = [
+    {
+        question: 'What is the time complexity of a binary search algorithm?',
+        possibleAnswers: ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'],
+        correctAnswer: 'O(log n)',
+    },
+    {
+        question: 'Which of these is a characteristic of the TCP protocol?',
+        possibleAnswers: ['Connectionless', 'Unreliable', 'No flow control', 'Connection-oriented'],
+        correctAnswer: 'Connection-oriented',
+    },
+    {
+        question: 'What does SQL stand for?',
+        possibleAnswers: ['Structured Query Language', 'Simple Query Language', 'System Query Language', 'Standard Query Language'],
+        correctAnswer: 'Structured Query Language',
+    },
+    {
+        question: 'Which data structure uses FIFO (First In First Out) principle?',
+        possibleAnswers: ['Stack', 'Queue', 'Tree', 'Graph'],
+        correctAnswer: 'Queue',
+    },
+    {
+        question: 'What is the purpose of an IP address?',
+        possibleAnswers: ['To identify a website', 'To identify a device on a network', 'To encrypt data', 'To store web pages'],
+        correctAnswer: 'To identify a device on a network',
+    },
+    {
+        question: 'Which of these is an example of a high-level programming language?',
+        possibleAnswers: ['Assembly', 'Machine code', 'Python', 'Binary'],
+        correctAnswer: 'Python',
+    },
+    {
+        question: 'What is the main purpose of an operating system?',
+        possibleAnswers: ['To create documents', 'To manage hardware and software resources', 'To design websites', 'To write programs'],
+        correctAnswer: 'To manage hardware and software resources',
+    },
+    {
+        question: 'Which of these is a type of network topology?',
+        possibleAnswers: ['Binary', 'Linear', 'Star', 'Circular'],
+        correctAnswer: 'Star',
+    },
+    {
+        question: 'What does HTML stand for?',
+        possibleAnswers: ['Hyper Text Markup Language', 'High Tech Modern Language', 'Hyperlink and Text Markup Language', 'Home Tool Markup Language'],
+        correctAnswer: 'Hyper Text Markup Language',
+    },
+    {
+        question: 'Which of these is a valid variable name in most programming languages?',
+        possibleAnswers: ['2ndVariable', 'my-variable', 'my_variable', 'my variable'],
+        correctAnswer: 'my_variable',
+    }
+];
+
+
 function showNextQuestion() {
     // If we've shown all questions, end the quiz
     if (questionsAnswered >= numOfQuestions) {
