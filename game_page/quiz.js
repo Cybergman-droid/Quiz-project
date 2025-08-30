@@ -14,7 +14,6 @@ let score = user.score;
 let questionsAnswered = 0;
 let usedQuestionIndices = [];
 
-console.log(username, numOfQuestions, score);
 
 const physicsQuestions = [
     {
