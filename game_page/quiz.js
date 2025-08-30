@@ -1,15 +1,18 @@
 let currentQuestionIndex;
 const quizquestionField = document.getElementById('quizquestion');
 const answerButtons = document.querySelectorAll('.quizbutton');
+const quizContainer = document.querySelector('.quizbox');
 let user = {
     username: localStorage.getItem("username"),
-    questionNum: localStorage.getItem("questionNum"),
+    questionNum: parseInt(localStorage.getItem("questionNum")),
     score: 0
 };
 
 let username = user.username;
 let numOfQuestions = user.questionNum;
 let score = user.score;
+let questionsAnswered = 0;
+let usedQuestionIndices = [];
 
 console.log(username, numOfQuestions, score);
 
@@ -66,43 +69,75 @@ const physicsQuestions = [
     }
 ];
 
-function showQuestions(){
-    let questionIndex = Math.floor((Math.random() * physicsQuestions.length));
-    quizquestionField.innerHTML = physicsQuestions[questionIndex].question
-    let i = 0
+function showNextQuestion() {
+    // If we've shown all questions, end the quiz
+    if (questionsAnswered >= numOfQuestions) {
+        endQuiz();
+        return;
+    }
+
+    // Get a random question that hasn't been used yet
+    let questionIndex;
+    do {
+        questionIndex = Math.floor(Math.random() * physicsQuestions.length);
+    } while (usedQuestionIndices.includes(questionIndex));
+    
+    usedQuestionIndices.push(questionIndex);
+    
+    // Display the question and answers
+    quizquestionField.innerHTML = physicsQuestions[questionIndex].question;
+    let i = 0;
     answerButtons.forEach(answerButton => {
-        answerButton.innerHTML = physicsQuestions[questionIndex].possibleAnswers[i]
-        i++
+        answerButton.innerHTML = physicsQuestions[questionIndex].possibleAnswers[i];
+        answerButton.style.backgroundColor = ''; // Reset button color
+        answerButton.disabled = false; // Re-enable buttons
+        i++;
     });
     currentQuestionIndex = questionIndex;
-};
+    questionsAnswered++;
+}
 
-function checkAnswer(event,){
+function checkAnswer(event) {
     const selectedBtn = event.target;
     const selectedAns = selectedBtn.innerHTML;
-    const correctAns  = physicsQuestions[currentQuestionIndex].correctAnswer;
+    const correctAns = physicsQuestions[currentQuestionIndex].correctAnswer;
 
-    if (selectedAns === correctAns){
-        score++
-        console.log(score)
+    // Disable all buttons to prevent multiple answers
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        // Highlight the correct answer
+        if (btn.innerHTML === correctAns) {
+            btn.style.backgroundColor = '#4CAF50';
+        }
+    });
+
+    if (selectedAns === correctAns) {
+        score++;
         selectedBtn.style.backgroundColor = '#4CAF50';
     } else {
         selectedBtn.style.backgroundColor = '#f44336';
-    };
-};
-
-function startQuiz(numOfQuestions){
-    answerButtons.forEach(answerButton => {
-        answerButton.addEventListener('click',checkAnswer)
-    })
-
-    for(let i = 0; i <= numOfQuestions;i++){
-        showQuestions()
     }
+
+    // Show next question after a delay
+    setTimeout(showNextQuestion, 1500);
+}
+
+function startQuiz() {
+    answerButtons.forEach(answerButton => {
+        answerButton.addEventListener('click', checkAnswer);
+    });
+    showNextQuestion();
+}
+
+function endQuiz() {
+    quizContainer.innerHTML = (`
+        <h2>Quiz Complete!</h2>
+        <p>Your score: ${score} out of ${numOfQuestions}</p>
+        <button id= 'quizReturn' onclick="window.location.href='../index.html'">Back to Home</button>
+    `);
 }
 
 
-window.onload 
-    startQuiz(numOfQuestions)
+window.onload = startQuiz;
 
 
