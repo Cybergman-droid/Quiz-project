@@ -235,7 +235,6 @@ function showNextQuestion() {
         return;
     }
 
-    // Get a random question that hasn't been used yet
     let questionIndex;
     do {
         questionIndex = Math.floor(Math.random() * physicsQuestions.length);
@@ -261,10 +260,8 @@ function checkAnswer(event) {
     const selectedAns = selectedBtn.innerHTML;
     const correctAns = physicsQuestions[currentQuestionIndex].correctAnswer;
 
-    // Disable all buttons to prevent multiple answers
     answerButtons.forEach(btn => {
         btn.disabled = true;
-        // Highlight the correct answer
         if (btn.innerHTML === correctAns) {
             btn.style.backgroundColor = '#4CAF50';
         }
