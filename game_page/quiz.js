@@ -8,6 +8,7 @@ let user = {
     score: 0
 };
 
+
 let username = user.username;
 let numOfQuestions = user.questionNum;
 let score = user.score;

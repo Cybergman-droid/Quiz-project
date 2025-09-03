@@ -6,4 +6,7 @@ function getData() {
 }
 
 
-getData()
+
+let submitBtn = document.getElementById('submit')
+
+submitBtn.addEventListener('click', getData)
