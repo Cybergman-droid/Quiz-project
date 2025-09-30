@@ -5,6 +5,11 @@ const quizContainer = document.querySelector('.quizbox');
 let user = {
     username: localStorage.getItem("username"),
     questionNum: parseInt(localStorage.getItem("questionNum")),
+    bio: localStorage.getItem(bio),
+    chem: localStorage.getItem(chem),
+    phy: localStorage.getItem(phy),
+    compSci: localStorage.getItem(compSci),
+
     score: 0
 };
 
@@ -284,6 +289,13 @@ function startQuiz() {
         answerButton.addEventListener('click', checkAnswer);
     });
     showNextQuestion();
+}
+
+function finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computingQuestions){
+    if ((user.bio) == true){
+        let finalArray[]
+        final
+    }
 }
 
 function endQuiz() {
