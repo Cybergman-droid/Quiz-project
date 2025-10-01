@@ -5,14 +5,15 @@ const quizContainer = document.querySelector('.quizbox');
 let user = {
     username: localStorage.getItem("username"),
     questionNum: parseInt(localStorage.getItem("questionNum")),
-    bio: localStorage.getItem(bio),
-    chem: localStorage.getItem(chem),
-    phy: localStorage.getItem(phy),
-    compSci: localStorage.getItem(compSci),
+    bio: localStorage.getItem('bio'),
+    chem: localStorage.getItem('chem'),
+    phy: localStorage.getItem('phy'),
+    compSci: localStorage.getItem('compSci'),
 
     score: 0
 };
 
+console.log(user)
 
 let username = user.username;
 let numOfQuestions = user.questionNum;
@@ -20,6 +21,24 @@ let score = user.score;
 let questionsAnswered = 0;
 let usedQuestionIndices = [];
 
+function finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computingQuestions,finalQuestionArray){
+    if ((user.bio) == true){
+        finalQuestionArray = finalQuestionArray.concat(biologyQuestions)
+    }
+
+    if (user.chem == true) {
+        finalQuestionArray = finalQuestionArray.concat(chemistryQuestions)
+    }
+
+    if (user.compSci == true) {
+        finalQuestionArray = finalQuestionArray.concat(computingQuestions)
+    }
+
+    if (user.phy == true) {
+        finalQuestionArray = finalQuestionArray.concat(physicsQuestions)
+    }
+
+}
 
 const physicsQuestions = [
     {
@@ -233,6 +252,8 @@ const computingQuestions = [
     }
 ];
 
+let finalQuestionArray = []
+
 
 function showNextQuestion() {
     // If we've shown all questions, end the quiz
@@ -243,16 +264,16 @@ function showNextQuestion() {
 
     let questionIndex;
     do {
-        questionIndex = Math.floor(Math.random() * physicsQuestions.length);
+        questionIndex = Math.floor(Math.random() * finalQuestionArray.length);
     } while (usedQuestionIndices.includes(questionIndex));
     
     usedQuestionIndices.push(questionIndex);
     
     // Display the question and answers
-    quizquestionField.innerHTML = physicsQuestions[questionIndex].question;
+    quizquestionField.innerHTML = finalQuestionArray[questionIndex].question;
     let i = 0;
     answerButtons.forEach(answerButton => {
-        answerButton.innerHTML = physicsQuestions[questionIndex].possibleAnswers[i];
+        answerButton.innerHTML = finalQuestionArray[questionIndex].possibleAnswers[i];
         answerButton.style.backgroundColor = ''; // Reset button color
         answerButton.disabled = false; // Re-enable buttons
         i++;
@@ -264,7 +285,7 @@ function showNextQuestion() {
 function checkAnswer(event) {
     const selectedBtn = event.target;
     const selectedAns = selectedBtn.innerHTML;
-    const correctAns = physicsQuestions[currentQuestionIndex].correctAnswer;
+    const correctAns = finalQuestionArray[currentQuestionIndex].correctAnswer;
 
     answerButtons.forEach(btn => {
         btn.disabled = true;
@@ -288,15 +309,11 @@ function startQuiz() {
     answerButtons.forEach(answerButton => {
         answerButton.addEventListener('click', checkAnswer);
     });
+
+    finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computingQuestions,finalQuestionArray);
     showNextQuestion();
 }
 
-function finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computingQuestions){
-    if ((user.bio) == true){
-        let finalArray[]
-        final
-    }
-}
 
 function endQuiz() {
     quizContainer.innerHTML = (`
