@@ -21,7 +21,7 @@ let score = user.score;
 let questionsAnswered = 0;
 let usedQuestionIndices = [];
 
-function finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computingQuestions,finalQuestionArray){
+function finalArray(){
     if ((user.bio) == true){
         finalQuestionArray = finalQuestionArray.concat(biologyQuestions)
     }
@@ -38,6 +38,7 @@ function finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computi
         finalQuestionArray = finalQuestionArray.concat(physicsQuestions)
     }
 
+    return finalQuestionArray
 }
 
 const physicsQuestions = [
@@ -253,6 +254,7 @@ const computingQuestions = [
 ];
 
 let finalQuestionArray = []
+finalQuestionArray = finalArray()
 
 
 function showNextQuestion() {
@@ -310,7 +312,6 @@ function startQuiz() {
         answerButton.addEventListener('click', checkAnswer);
     });
 
-    finalArray(physicsQuestions,biologyQuestions,chemistryQuestions,computingQuestions,finalQuestionArray);
     showNextQuestion();
 }
 
