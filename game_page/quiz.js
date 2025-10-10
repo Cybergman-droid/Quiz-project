@@ -22,19 +22,19 @@ let questionsAnswered = 0;
 let usedQuestionIndices = [];
 
 function finalArray(){
-    if ((user.bio) == true){
+    if ((user.bio) == 'true'){
         finalQuestionArray = finalQuestionArray.concat(biologyQuestions)
     }
 
-    if (user.chem == true) {
+    if (user.chem == 'true') {
         finalQuestionArray = finalQuestionArray.concat(chemistryQuestions)
     }
 
-    if (user.compSci == true) {
+    if (user.compSci == 'true') {
         finalQuestionArray = finalQuestionArray.concat(computingQuestions)
     }
 
-    if (user.phy == true) {
+    if (user.phy == 'true') {
         finalQuestionArray = finalQuestionArray.concat(physicsQuestions)
     }
 
@@ -255,6 +255,7 @@ const computingQuestions = [
 
 let finalQuestionArray = []
 finalQuestionArray = finalArray()
+console.log(finalQuestionArray)
 
 
 function showNextQuestion() {
@@ -317,9 +318,11 @@ function startQuiz() {
 
 
 function endQuiz() {
+    percentage = Math.round((score/numOfQuestions)*100)
     quizContainer.innerHTML = (`
         <h2>Quiz Complete!</h2>
         <p>Your score: ${score} out of ${numOfQuestions}</p>
+        <p>${percentage}%</p>
         <button id= 'quizReturn' onclick="window.location.href='../index.html'">Back to Home</button>
     `);
 }
