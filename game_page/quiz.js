@@ -329,5 +329,3 @@ function endQuiz() {
 
 
 window.onload = startQuiz;
-
-
