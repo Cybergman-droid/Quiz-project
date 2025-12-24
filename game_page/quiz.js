@@ -9,7 +9,6 @@ let user = {
   chem: localStorage.getItem("chem"),
   phy: localStorage.getItem("phy"),
   compSci: localStorage.getItem("compSci"),
-
   score: 0,
 };
 
@@ -425,7 +424,7 @@ function startQuiz() {
 }
 
 function endQuiz() {
-  percentage = Math.round((score / numOfQuestions) * 100);
+  let percentage = Math.round((score / numOfQuestions) * 100);
   quizContainer.innerHTML = `
         <h2>Quiz Complete!</h2>
         <p>Your score: ${score} out of ${numOfQuestions}</p>

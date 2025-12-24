@@ -1,3 +1,5 @@
+@plugin "daisyui";
+
 /* Global Styles */
 :root {
   --primary-color: #6c63ff;
