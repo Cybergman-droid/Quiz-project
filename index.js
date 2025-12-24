@@ -1,11 +1,11 @@
 function getData() {
     localStorage.clear()
     username = document.getElementById("username").value;
-    questionNum = document.getElementById("questionNum").value;
-    physics = document.getElementById('phy').checked
-    biology = document.getElementById('bio').checked
-    chemistry = document.getElementById('chem').checked
-    compsci = document.getElementById('compSci').checked
+    let questionNum = document.getElementById("questionNum").value;
+    let physics = document.getElementById('phy').checked
+    let biology = document.getElementById('bio').checked
+    let chemistry = document.getElementById('chem').checked
+    let compsci = document.getElementById('compSci').checked
 
     localStorage.setItem("username", username);
     localStorage.setItem("questionNum", questionNum); 
