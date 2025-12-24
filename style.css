@@ -1,4 +1,6 @@
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
 
 /* Global Styles */
 :root {
@@ -92,7 +94,6 @@ input[type="number"]:focus {
 /* Button Styles */
 #submit {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: white;
   padding: 14px 28px;
   border: none;
   border-radius: 8px;
