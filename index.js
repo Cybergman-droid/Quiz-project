@@ -1,6 +1,6 @@
 function getData() {
     localStorage.clear()
-    username = document.getElementById("username").value;
+    let username = document.getElementById("username").value;
     let questionNum = document.getElementById("questionNum").value;
     let physics = document.getElementById('phy').checked
     let biology = document.getElementById('bio').checked
